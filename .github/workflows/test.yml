@@ -2,6 +2,11 @@ name: Deploy To QA
 
 on:
   workflow_call:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - 'main'
 
 jobs:
   Deploy-to-QA:
