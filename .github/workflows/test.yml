@@ -2,10 +2,9 @@ name: Deploy To QA
 
 on:
   workflow_call:
-  workflow_dispatch:
   pull_request:
     types:
-      - closed
+      - opened
     branches:
       - 'main'
 
@@ -41,19 +40,3 @@ jobs:
         run: |
           echo 1
 
-
-          
-  # Deploy-to-QA:
-  #   # if: startsWith(github.head_ref, 'releases/')
-  #   runs-on: ubuntu-latest
-  #   environment: Staging
-  #   steps:
-  #     - name: Generate and send slack report
-  #       env:
-  #         SLACK_TOKEN: "test"
-  #       run: |
-  #         ANDROID_SDK_VERSION=`cat package.json | jq .androidSdkVersion`
-  #         curl -X POST -H 'Content-type: application/json' --data '{"deploy_type": "QA", "install_tag": "QA", "git_branch": "'"$ANDROID_SDK_VERSION"'"}' "http://1.1.1.1"
-  #         echo "after"
-  #         echo $ANDROID_SDK_VERSION
-  
